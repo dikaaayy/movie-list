@@ -7,7 +7,7 @@ export default function Rows() {
       <Row
         title="Netflix Original"
         fetchURL={request.getNetflixOG}
-        isLarge={false}
+        isLarge={true}
       />
       <Row
         title="Animation"
@@ -15,12 +15,16 @@ export default function Rows() {
         isLarge={false}
       />
       <Row title="Top Rated" fetchURL={request.getTopRated} isLarge={false} />
+      <Row title="Drama" fetchURL={request.getDramaMovie} isLarge={true} />
+      <Row title="Romance" fetchURL={request.getRomanceMovie} isLarge={false} />
+      <Row title="Crime" fetchURL={request.getCrimeMovie} isLarge={false} />
       <Row
         title="Documentary"
         fetchURL={request.getDocumentaryMovie}
-        isLarge={false}
+        isLarge={true}
       />
-      <Row title="Romance" fetchURL={request.getRomanceMovie} isLarge={false} />
+      <Row title="War" fetchURL={request.getWarMovie} isLarge={false} />
+      <Row title="History" fetchURL={request.getHistoryMovie} isLarge={false} />
     </>
   )
 }
