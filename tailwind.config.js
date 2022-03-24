@@ -4,7 +4,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        netflixSans: 'netflixSans',
+      },
+    },
   },
   plugins: [require('tailwind-scrollbar-hide')],
 }

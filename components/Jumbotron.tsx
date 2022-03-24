@@ -41,7 +41,7 @@ export default function Jumbotron() {
   return (
     <>
       <div
-        className="mb-16 flex h-[80vh] max-w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center"
+        className="mb-10 flex h-[85vh] max-w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center"
         style={{
           backgroundImage: `url(${imgURL}${movie?.backdrop_path})`,
         }}
@@ -50,18 +50,18 @@ export default function Jumbotron() {
           <p>a</p>
         </div>
         <div>
-          <div className="max-h-1/2 ml-14 w-1/3">
-            <h1 className="mb-6 text-6xl font-semibold text-white">
+          <div className="max-h-1/2 ml-14 w-[40%]">
+            <h1 className="mb-6 -ml-1 text-7xl font-semibold text-white">
               {movie?.title || movie?.name || movie?.original_name}
             </h1>
-            <p className="hidden text-lg tracking-wider text-white md:inline">
+            <p className="hidden text-xl tracking-wider text-white md:inline">
               {truncate(movie?.overview, 200)}
             </p>
             <div className="mt-8 flex gap-x-4 lg:mt-5">
-              <button className="flex items-center justify-center gap-x-2 rounded bg-white px-5 py-2 transition hover:bg-opacity-70">
+              <button className="flex items-center justify-center gap-x-2 rounded bg-white py-3 pl-[1.6rem] pr-7 transition hover:bg-opacity-70">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className="h-7 w-7"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -71,12 +71,12 @@ export default function Jumbotron() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <p className="text-xl font-semibold">Play</p>
+                <p className="text-2xl font-semibold">Play</p>
               </button>
-              <button className="flex items-center justify-center gap-x-2 rounded bg-gray-400 bg-opacity-40 px-5 py-2 text-white transition hover:bg-opacity-20">
+              <button className="flex items-center justify-center gap-x-2 rounded bg-gray-400 bg-opacity-40 py-3 pl-[1.6rem] pr-7 text-white transition hover:bg-opacity-20">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className="h-7 w-7"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -89,7 +89,7 @@ export default function Jumbotron() {
                   />
                 </svg>
                 <p
-                  className="text-xl font-semibold"
+                  className="text-2xl font-semibold"
                   onClick={() => (isModalOpen ? close() : open(movie))}
                 >
                   Info
@@ -98,7 +98,7 @@ export default function Jumbotron() {
             </div>
           </div>
         </div>
-        <div className="h-24 w-full bg-gradient-to-t from-black to-transparent md:h-14">
+        <div className="h-24 w-full bg-gradient-to-t from-[#0a0a0a] to-transparent md:h-14">
           <div>
             <p className="invisible">a</p>
           </div>

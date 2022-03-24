@@ -38,15 +38,15 @@ export default function Row({
   }
   return (
     <>
-      <div className="mt-2 ml-10">
-        <h2 className="-mb-8 ml-7 text-3xl font-semibold text-white">
+      <div className="mt-2 ml-6">
+        <h2 className="-mb-11 cursor-pointer text-3xl font-semibold text-[#eeeeee] transition hover:text-white md:ml-3 lg:ml-9">
           {title}
         </h2>
-        <div className="flex gap-x-4 overflow-auto p-7 py-14 scrollbar-hide">
+        <div className="flex gap-x-4 overflow-auto py-14 scrollbar-hide md:px-3 lg:px-9">
           {movies.map((movie) => {
             return (
               <div
-                className={`group w-52 flex-none overflow-hidden rounded bg-gray-500 shadow-lg transition duration-500 hover:scale-125 ${
+                className={`group w-52 flex-none overflow-hidden rounded bg-gray-900 shadow-lg transition duration-500 hover:scale-125 ${
                   isLarge ? 'w-52' : 'h-[10rem] w-72'
                 }`}
                 key={movie.id}
@@ -56,7 +56,7 @@ export default function Row({
                     isLarge ? movie.poster_path : movie.backdrop_path
                   }`}
                   alt=""
-                  className={`w-full overflow-hidden ${
+                  className={`w-full cursor-pointer overflow-hidden ${
                     isLarge ? 'h-[20rem] w-full' : 'h-[10rem] w-72'
                   }`}
                   onClick={() => (isModalOpen ? close() : open(movie))}

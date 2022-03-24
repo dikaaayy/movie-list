@@ -82,15 +82,15 @@ export default function Modal({
             </p>
           </div>
           <div className="basis-1/3 pl-4 pt-8">
-            <h1 className="font-semibold text-white">
+            <h1 className="text-white">
               <span className=" text-gray-400">Rating: </span>
               {movie.vote_average} / 10
             </h1>
-            <h1 className="font-semibold text-white">
+            <h1 className="text-white">
               <span className=" text-gray-400">Popularity: </span>
               {movie.popularity}
             </h1>
-            <h1 className="font-semibold text-white">
+            <h1 className="text-white">
               <span className="text-gray-400">Genre: </span>
               {movie.genre_ids}
             </h1>

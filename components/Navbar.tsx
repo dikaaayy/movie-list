@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`fixed top-0 z-10 flex w-full items-center justify-between px-14 py-4 transition-all duration-700 ease-in ${
+        className={`fixed top-0 z-10 flex w-full items-center justify-between bg-gradient-to-b from-[#0a0a0a] to-transparent px-14 py-4 transition-all duration-500 ease-in ${
           show && 'bg-black'
         }`}
       >
