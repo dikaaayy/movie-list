@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import instance from './axios'
-import axios from './axios'
-import Modal from './modal/Modal'
+import instance from '../apifetch/axios'
+import axios from '../apifetch/axios'
+import Modal from '../modal/Modal'
 import { AnimatePresence } from 'framer-motion'
 
 const imgURL = 'https://image.tmdb.org/t/p/original/'

@@ -1,8 +1,8 @@
 import Row from './Row'
-import request from './request'
+import request from '../apifetch/request'
 export default function Rows() {
   return (
-    <>
+    <div className="bg-[#0a0a0a]">
       <Row title="Trending Now" fetchURL={request.getTrending} isLarge />
       <Row
         title="Netflix Original"
@@ -25,6 +25,6 @@ export default function Rows() {
       />
       <Row title="War" fetchURL={request.getWarMovie} isLarge={false} />
       <Row title="History" fetchURL={request.getHistoryMovie} isLarge={false} />
-    </>
+    </div>
   )
 }

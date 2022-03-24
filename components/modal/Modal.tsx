@@ -1,6 +1,6 @@
 import Backdrop from './Backdrop'
 import { motion } from 'framer-motion'
-import genres from '../genre'
+// import genres from '../genre'
 import { useState } from 'react'
 
 const imgURL = 'https://image.tmdb.org/t/p/original/'

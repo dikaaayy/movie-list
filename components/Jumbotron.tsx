@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import axios from './axios'
-import request from './request'
+import axios from './apifetch/axios'
+import request from './apifetch/request'
 import Modal from './modal/Modal'
 import { AnimatePresence } from 'framer-motion'
 
