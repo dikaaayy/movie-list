@@ -1,7 +1,7 @@
 import Backdrop from './Backdrop'
 import { motion } from 'framer-motion'
 // import genres from '../genre'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 const imgURL = 'https://image.tmdb.org/t/p/original/'
 const dropIn = {
@@ -37,7 +37,7 @@ export default function Modal({
     <Backdrop onClick={handleClose}>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="relative m-auto h-[83vh] w-[60rem] max-w-[50%] overflow-scroll overflow-x-hidden rounded-lg bg-[#080c0d] scrollbar-hide"
+        className="relative m-auto h-[83vh] w-[90%] overflow-scroll overflow-x-hidden rounded-lg bg-[#080c0d] scrollbar-hide lg:w-[60rem]"
         variants={dropIn}
         initial="hidden"
         animate="visible"
@@ -70,7 +70,7 @@ export default function Modal({
           className="w-full"
         />
         <div className="flex">
-          <div className="basis-2/3 pt-8 pl-6">
+          <div className="basis-3/4 pt-8 pl-6 md:basis-2/3">
             <h2 className="mb-2 text-4xl font-semibold text-white">
               {movie?.title || movie?.name || movie?.original_name}
             </h2>
@@ -81,7 +81,7 @@ export default function Modal({
               "{truncate(movie?.overview, 500)}"
             </p>
           </div>
-          <div className="basis-1/3 pl-4 pt-8">
+          <div className="basis-1/4 pl-4 pt-8 md:basis-1/3">
             <h1 className="text-white">
               <span className=" text-gray-400">Rating: </span>
               {movie.vote_average} / 10

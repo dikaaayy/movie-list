@@ -41,7 +41,7 @@ export default function Jumbotron() {
   return (
     <>
       <div
-        className="mb-10 flex h-[85vh] max-w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center"
+        className="mb-10 flex h-[85vh] w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center"
         style={{
           backgroundImage: `url(${imgURL}${movie?.backdrop_path})`,
         }}
@@ -50,8 +50,8 @@ export default function Jumbotron() {
           <p>a</p>
         </div>
         <div>
-          <div className="max-h-1/2 ml-14 w-[40%]">
-            <h1 className="mb-6 -ml-1 text-7xl font-semibold text-white">
+          <div className="max-h-1/2 ml-6 sm:ml-14 md:w-[50%] lg:w-[40%]">
+            <h1 className="-ml-1 mb-10 text-5xl font-semibold text-white sm:text-7xl md:mb-6">
               {movie?.title || movie?.name || movie?.original_name}
             </h1>
             <p className="hidden text-xl tracking-wider text-white md:inline">
@@ -71,7 +71,7 @@ export default function Jumbotron() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <p className="text-2xl font-semibold">Play</p>
+                <p className="text-lg font-semibold md:text-2xl">Play</p>
               </button>
               <button className="flex items-center justify-center gap-x-2 rounded bg-gray-400 bg-opacity-40 py-3 pl-[1.6rem] pr-7 text-white transition hover:bg-opacity-20">
                 <svg
@@ -89,7 +89,7 @@ export default function Jumbotron() {
                   />
                 </svg>
                 <p
-                  className="text-2xl font-semibold"
+                  className="text-lg font-semibold md:text-2xl"
                   onClick={() => (isModalOpen ? close() : open(movie))}
                 >
                   Info
