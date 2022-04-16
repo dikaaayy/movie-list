@@ -30,6 +30,7 @@ export default function Row({
 
   const slideNext = () => {
     if (sliderValue < 140) {
+      console.log(sliderValue)
       setSliderValue(sliderValue + 20)
     } else {
       setSliderValue(0)
@@ -52,7 +53,6 @@ export default function Row({
   const open = (movie: any) => {
     setIsModalOpen(true)
     setModalMovie(movie)
-    console.log(movie)
   }
   return (
     <>
@@ -88,7 +88,7 @@ export default function Row({
           </button>
         </div>
         <div
-          className={`flex -translate-x-[${sliderValue}%] items-center gap-x-4 py-14 transition-all duration-700 scrollbar-hide md:px-3 lg:px-9`}
+          className={`flex -translate-x-[${sliderValue}%] transform items-center gap-x-4 py-14 transition-all duration-700 scrollbar-hide md:px-3 lg:px-9`}
         >
           {movies.map((movie) => {
             return (
