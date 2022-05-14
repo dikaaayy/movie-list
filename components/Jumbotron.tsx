@@ -23,7 +23,6 @@ export default function Jumbotron() {
     }
     fetchData()
   }, [])
-  console.log(movie)
   const close = () => {
     setIsModalOpen(false)
     setModalMovie({})
@@ -41,7 +40,7 @@ export default function Jumbotron() {
   return (
     <>
       <div
-        className="mb-10 flex h-[85vh] w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center"
+        className="jumbotron-container"
         style={{
           backgroundImage: `url(${imgURL}${movie?.backdrop_path})`,
         }}
@@ -50,15 +49,15 @@ export default function Jumbotron() {
           <p>a</p>
         </div>
         <div>
-          <div className="max-h-1/2 ml-6 sm:ml-14 md:w-[50%] lg:w-[40%]">
-            <h1 className="-ml-1 mb-10 text-5xl font-semibold text-white sm:text-7xl md:mb-6">
+          <div className="jumbotron-detail-container">
+            <h1 className="jumbotron-title">
               {movie?.title || movie?.name || movie?.original_name}
             </h1>
-            <p className="hidden text-xl tracking-wider text-white md:inline">
+            <p className="jumbotron-description">
               {truncate(movie?.overview, 200)}
             </p>
-            <div className="mt-8 flex gap-x-4 lg:mt-5">
-              <button className="flex items-center justify-center gap-x-2 rounded bg-white py-3 pl-[1.6rem] pr-7 transition hover:bg-opacity-70">
+            <div className="jumbotron-button-container">
+              <button className="jumbotron-left-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-7 w-7"
@@ -73,7 +72,7 @@ export default function Jumbotron() {
                 </svg>
                 <p className="text-lg font-semibold md:text-2xl">Play</p>
               </button>
-              <button className="flex items-center justify-center gap-x-2 rounded bg-gray-400 bg-opacity-40 py-3 pl-[1.6rem] pr-7 text-white transition hover:bg-opacity-20">
+              <button className="jumbotron-right-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-7 w-7"

@@ -17,4 +17,40 @@
   }
 }
 @tailwind components;
+
+@layer components {
+  .jumbotron-container {
+    @apply mb-10 flex h-[85vh] w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center;
+  }
+  .jumbotron-detail-container {
+    @apply ml-6 max-h-[50vh] sm:ml-14 md:w-[50%] lg:w-[40%];
+  }
+  .jumbotron-title {
+    @apply -ml-1 mb-10 text-5xl font-semibold text-white sm:text-7xl md:mb-6;
+  }
+  .jumbotron-description {
+    @apply hidden text-xl tracking-wider text-white md:inline;
+  }
+  .jumbotron-button-container {
+    @apply mt-8 flex gap-x-4 lg:mt-5;
+  }
+  .jumbotron-left-button {
+    @apply flex items-center justify-center gap-x-2 rounded bg-white py-3 pl-[1.6rem] pr-7 transition hover:bg-opacity-70;
+  }
+  .jumbotron-right-button {
+    @apply flex items-center justify-center gap-x-2 rounded bg-gray-400 bg-opacity-40 py-3 pl-[1.6rem] pr-7 text-white transition hover:bg-opacity-20;
+  }
+  .navbar {
+    @apply fixed top-0 z-50 flex w-full items-center justify-between bg-gradient-to-b from-[#0a0a0a] to-transparent px-6 py-4 transition-all duration-500 ease-in sm:px-14;
+  }
+  .row-container {
+    @apply relative mt-2 ml-6 overflow-hidden;
+  }
+  .inner-row-container {
+    @apply absolute left-0 z-20 flex cursor-pointer items-center justify-center rounded bg-black text-white opacity-40 transition group-hover:opacity-80;
+  }
+  .row-title {
+    @apply -mb-11 cursor-pointer text-3xl font-semibold text-[#eeeeee] transition hover:text-white md:ml-3 lg:ml-9;
+  }
+}
 @tailwind utilities;

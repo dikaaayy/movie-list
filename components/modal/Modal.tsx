@@ -37,7 +37,7 @@ export default function Modal({
     <Backdrop onClick={handleClose}>
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className="relative m-auto h-[83vh] w-[90%] overflow-scroll overflow-x-hidden rounded-lg bg-[#080c0d] scrollbar-hide lg:w-[60rem]"
+        className="relative m-auto h-[83vh] w-[90%] overflow-scroll overflow-x-hidden rounded-lg bg-[#080c0d] pb-4 scrollbar-hide lg:w-[60rem]"
         variants={dropIn}
         initial="hidden"
         animate="visible"

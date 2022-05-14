@@ -23,11 +23,7 @@ export default function Navbar() {
   }, [])
   return (
     <>
-      <div
-        className={`fixed top-0 z-50 flex w-full items-center justify-between bg-gradient-to-b from-[#0a0a0a] to-transparent px-6 py-4 transition-all duration-500 ease-in sm:px-14 ${
-          show && 'bg-black'
-        }`}
-      >
+      <div className={`navbar ${show && 'bg-black'}`}>
         <a href="">
           <img src={logo} alt="netflix logo" className="h-4 sm:h-7" />
         </a>
