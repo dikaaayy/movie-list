@@ -4,7 +4,7 @@ This project was made with NextJS with TailwindCSS, and still on progress to mak
 
 ## Preview of the Web
 
-You can access the preview of this project in [This Website](http://andikay.me)
+You can access the preview of this project here [This Website](http://movie.andikay.me)
 
 ## How to use
 
