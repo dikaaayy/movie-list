@@ -1,6 +1,6 @@
-# Netflix Clone
+# Movie Lists
 
-This project was made with NextJS with TailwindCSS, and still on progress to make the netflix's complete feature. Inspired by [Sonny Sangha💌](https://github.com/sonnysangha)
+This project was made with NextJS with TailwindCSS, and still on progress to make the netflix's complete feature.
 
 ## Preview of the Web
 
