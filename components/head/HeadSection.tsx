@@ -4,7 +4,7 @@ export default function HeadSection() {
   return (
     <>
       <Head>
-        <title>Netflix Clone</title>
+        <title>Home | Movie List</title>
         <link
           rel="icon"
           href="https://assets.nflxext.com/ffe/siteui/common/icons/nficon2016.ico"

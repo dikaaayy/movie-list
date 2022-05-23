@@ -3,6 +3,7 @@ import instance from '../apifetch/axios'
 import axios from '../apifetch/axios'
 import Modal from '../modal/Modal'
 import { AnimatePresence } from 'framer-motion'
+import Head from 'next/head'
 
 const imgURL = 'https://image.tmdb.org/t/p/original/'
 
