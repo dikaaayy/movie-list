@@ -1,6 +1,7 @@
 # Movie Lists
 
-<img src="images/movieMacbook.svg" width="440"/> <img src="images/movieIphone.svg" width="440"/>
+<img src="images/movieMacbook.svg" width="500"/>
+<img src="images/movieIphone12.svg" width="440"/>
 
 This project was made with NextJS with TailwindCSS, and still on progress to make the netflix's complete feature.
 
