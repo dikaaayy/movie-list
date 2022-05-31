@@ -23,7 +23,6 @@ export default function Jumbotron() {
     }
     fetchData()
   }, [])
-  console.log(movie)
   const close = () => {
     setIsModalOpen(false)
     setModalMovie({})
@@ -31,7 +30,6 @@ export default function Jumbotron() {
   const open = (movie: any) => {
     setIsModalOpen(true)
     setModalMovie(movie)
-    console.log(movie)
   }
 
   function truncate(str: any, n: any) {
@@ -43,7 +41,7 @@ export default function Jumbotron() {
       <div
         className="mb-10 flex h-[85vh] w-full flex-col items-start justify-between justify-items-start gap-x-28 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${imgURL}${movie?.backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
         }}
       >
         <div className="invisible">

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import instance from '../apifetch/axios'
 import axios from '../apifetch/axios'
 import Modal from '../modal/Modal'
 import { AnimatePresence } from 'framer-motion'
-import Head from 'next/head'
-
+import classNames from 'classnames'
+import { translateMap } from '../constant'
 const imgURL = 'https://image.tmdb.org/t/p/original/'
 
 export default function Row({
@@ -31,12 +30,10 @@ export default function Row({
 
   const slideNext = () => {
     if (sliderValue < 140) {
-      console.log(sliderValue)
       setSliderValue(sliderValue + 20)
     } else {
       setSliderValue(0)
     }
-    // setSliderValue(sliderValue + 20)
   }
   const slidePrev = () => {
     if (sliderValue > 0) {
@@ -44,7 +41,6 @@ export default function Row({
     } else {
       setSliderValue(0)
     }
-    // setSliderValue(sliderValue - 20)
   }
 
   const close = () => {
@@ -89,7 +85,11 @@ export default function Row({
           </button>
         </div>
         <div
-          className={`flex -translate-x-[${sliderValue}%] transform items-center gap-x-4 py-14 transition-all duration-700 scrollbar-hide md:px-3 lg:px-9`}
+          className={classNames(
+            // @ts-ignore
+            translateMap[sliderValue],
+            'slider flex transform items-center gap-x-4 py-14 transition-all duration-700 scrollbar-hide md:px-3 lg:px-9'
+          )}
         >
           {movies.map((movie) => {
             return (
