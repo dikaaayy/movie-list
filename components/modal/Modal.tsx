@@ -1,6 +1,7 @@
 import Backdrop from './Backdrop'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
+import Link from 'next/link'
 // import genres from '../genre'
 // import { useState } from 'react'
 
@@ -34,6 +35,7 @@ export default function Modal({
     return str?.length > n ? str.substr(0, n - 1) + '...' : str
   }
   // const [movieGenre, setMovieGenre] = useState([])
+  console.log(movie)
   return (
     <>
       <Head>
@@ -92,19 +94,20 @@ export default function Modal({
                 "{truncate(movie?.overview, 500)}"
               </p>
             </div>
-            <div className="basis-1/4 pl-4 pt-8 md:basis-1/3">
-              <h1 className="text-white">
+            <div className="flex basis-1/4 flex-col space-y-1 pl-4 pt-8 text-white md:basis-1/3">
+              <h1 className="">
                 <span className=" text-gray-400">Rating: </span>
                 {movie.vote_average} / 10
               </h1>
-              <h1 className="text-white">
+              {/* <h1 className="text-white">
                 <span className=" text-gray-400">Popularity: </span>
                 {movie.popularity}
-              </h1>
-              <h1 className="text-white">
-                <span className="text-gray-400">Genre: </span>
-                {movie.genre_ids}
-              </h1>
+              </h1> */}
+              <Link href={`/movie/` + movie.id}>
+                <a className="self-start rounded bg-gray-400 bg-opacity-30 p-2 font-semibold">
+                  More...
+                </a>
+              </Link>
             </div>
           </div>
         </motion.div>

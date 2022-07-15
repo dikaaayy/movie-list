@@ -20,6 +20,8 @@ export default function Row({
   const [modalMovie, setModalMovie] = useState<any>({})
   const [sliderValue, setSliderValue] = useState(0)
 
+  // console.log(movies[0])
+
   useEffect(() => {
     const fetchData = async () => {
       const request = await axios.get(fetchURL)
