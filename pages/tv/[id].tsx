@@ -22,7 +22,7 @@ export const getServerSideProps = async (context: any) => {
 }
 
 export default function TV({ tvShow, casts }: any) {
-  console.log(casts.cast)
+  console.log(tvShow)
   return (
     <>
       <Head>

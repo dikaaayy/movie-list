@@ -103,7 +103,7 @@ export default function Modal({
                 "{truncate(movie?.overview, 500)}"
               </p>
             </div>
-            <div className="flex basis-1/4 flex-col space-y-1 pl-4 pt-8 text-white md:basis-1/3">
+            <div className="basis-1/4 space-y-1 pl-4 pt-8 text-white md:basis-1/3">
               <h1 className="">
                 <span className=" text-gray-400">Rating: </span>
                 {movie.vote_average} / 10
@@ -122,8 +122,11 @@ export default function Modal({
                   )
                 }
               >
-                <a className="self-start rounded bg-gray-400 bg-opacity-70 py-2 px-4  font-semibold transition hover:bg-opacity-60">
-                  More...
+                <a
+                  className="self-start rounded text-lg transition hover:text-gray-300"
+                  target={'_blank'}
+                >
+                  Click for More
                 </a>
               </Link>
             </div>
