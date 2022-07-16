@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const logo =
@@ -28,10 +30,24 @@ export default function Navbar() {
           show && 'bg-black'
         }`}
       >
-        <a href="">
-          <img src={logo} alt="netflix logo" className="h-4 sm:h-7" />
-        </a>
-        <img src={user} alt="" className="h-7 sm:h-10" />
+        <Link href="/">
+          <a>
+            <Image
+              src={logo}
+              alt="netflix-logo"
+              height={25}
+              width={80}
+              layout="fixed"
+            />
+          </a>
+        </Link>
+        <Image
+          src={user}
+          alt="user-logo"
+          height={40}
+          width={40}
+          layout="fixed"
+        />
       </div>
     </>
   )

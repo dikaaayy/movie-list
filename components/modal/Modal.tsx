@@ -34,6 +34,15 @@ export default function Modal({
   function truncate(str: any, n: any) {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str
   }
+  const routeLogic = (type: any) => {
+    if (type) {
+      return type
+    } else;
+    {
+      return 'movie'
+    }
+  }
+
   // const [movieGenre, setMovieGenre] = useState([])
   console.log(movie)
   return (
@@ -103,8 +112,17 @@ export default function Modal({
                 <span className=" text-gray-400">Popularity: </span>
                 {movie.popularity}
               </h1> */}
-              <Link href={`/movie/` + movie.id}>
-                <a className="self-start rounded bg-gray-400 bg-opacity-30 p-2 font-semibold">
+              <Link
+                href={
+                  `/${routeLogic(movie.media_type)}/` +
+                  movie.id +
+                  '?title=' +
+                  encodeURIComponent(
+                    movie?.title || movie?.name || movie?.original_name
+                  )
+                }
+              >
+                <a className="self-start rounded bg-gray-400 bg-opacity-70 py-2 px-4  font-semibold transition hover:bg-opacity-60">
                   More...
                 </a>
               </Link>
