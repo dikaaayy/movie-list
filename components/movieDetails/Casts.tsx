@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
 export default function Casts({ person }: any) {
-  console.log(person)
+  // console.log(person)
   return (
-    <div className="mb-1 flex max-w-[8rem] flex-none flex-col overflow-hidden rounded bg-[#242424]">
+    <div className="mb-3 flex max-w-[8rem] flex-none flex-col overflow-hidden rounded bg-[#242424]">
       <Image
         src={`https://image.tmdb.org/t/p/original/${person?.profile_path}`}
         width={5.5 * 25}

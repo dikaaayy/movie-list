@@ -24,19 +24,26 @@ export const getServerSideProps = async (context: any) => {
       },
     }
   }
+
   const casts = await fetch(
     'https://api.themoviedb.org/3/movie/' +
       id +
       '/credits?api_key=76ebb98bc55f9ac730ad21ae0ef1a116'
   ).then((res) => res.json())
+
+  const recommendation = await fetch(
+    'https://api.themoviedb.org/3/movie/' +
+      id +
+      '/recommendations?api_key=76ebb98bc55f9ac730ad21ae0ef1a116'
+  ).then((res) => res.json())
   return {
-    props: { movie, casts },
+    props: { movie, casts, recommendation },
   }
 }
 
-export default function Movies({ movie, casts }: any) {
+export default function Movies({ movie, casts, recommendation }: any) {
   const { cast } = casts
-  console.log(movie)
+  console.log(recommendation)
 
   const minToHour = (n: number) => {
     let hours = n / 60
@@ -68,7 +75,7 @@ export default function Movies({ movie, casts }: any) {
             src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
             width={5 * 65}
             height={8 * 65}
-            className="self-start"
+            className="self-start rounded"
           />
           <div className="flex basis-full flex-col gap-y-8">
             <p className="text-2xl font-semibold text-white lg:text-5xl">
