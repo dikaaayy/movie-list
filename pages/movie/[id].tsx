@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Casts from '../../components/movieDetails/Casts'
 import Details from '../../components/movieDetails/Details'
+import RecommendationRow from '../../components/movieDetails/RecommendationRow'
 import Navbar from '../../components/Navbar'
 
 export const getServerSideProps = async (context: any) => {
@@ -44,7 +45,7 @@ export const getServerSideProps = async (context: any) => {
 
 export default function Movies({ movie, casts, recommendation }: any) {
   const { cast } = casts
-  //   console.log(recommendation)
+  console.log(recommendation)
   return (
     <>
       <Head>
@@ -96,8 +97,11 @@ export default function Movies({ movie, casts, recommendation }: any) {
             <Details movie={movie} />
           </div>
         </div>
-        <div className="mx-28 mt-28">
-          <p className="text-2xl font-semibold text-white">Similar Genre</p>
+        <div className="mx-[4.5rem] mt-28">
+          <RecommendationRow
+            title={'Similar Genre'}
+            movies={recommendation.results}
+          />
         </div>
       </div>
     </>
