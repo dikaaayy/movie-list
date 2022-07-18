@@ -12,18 +12,8 @@ export default function RecommendationRow({ title, movies }: any) {
   const [modalMovie, setModalMovie] = useState<any>({})
   const [sliderValue, setSliderValue] = useState(0)
 
-  // console.log(movies[0])
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const request = await axios.get(fetchURL)
-  //     setMovies(request.data.results)
-  //   }
-  //   fetchData()
-  // }, [fetchURL])
-
   const slideNext = () => {
-    if (sliderValue < 140) {
+    if (sliderValue < 160) {
       setSliderValue(sliderValue + 20)
     } else {
       setSliderValue(0)

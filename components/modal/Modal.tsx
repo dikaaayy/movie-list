@@ -125,6 +125,7 @@ export default function Modal({
                 <a
                   className="self-start rounded text-lg transition hover:text-gray-300"
                   target={'_blank'}
+                  onClick={handleClose}
                 >
                   Click for More
                 </a>

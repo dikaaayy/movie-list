@@ -96,7 +96,7 @@ export default function Row({
           {movies.map((movie) => {
             return (
               <div
-                className={`group w-52 flex-none overflow-hidden rounded bg-gray-900 shadow-lg transition duration-500 hover:scale-125 ${
+                className={`group w-52 flex-none overflow-hidden rounded bg-[#252525] shadow-lg transition duration-500 hover:scale-125 ${
                   isLarge ? 'w-52' : 'h-[10rem] w-72'
                 }`}
                 key={movie.id}
