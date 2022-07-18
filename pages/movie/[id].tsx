@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Casts from '../../components/movieDetails/Casts'
+import Details from '../../components/movieDetails/Details'
 import Navbar from '../../components/Navbar'
 
 export const getServerSideProps = async (context: any) => {
@@ -43,15 +44,7 @@ export const getServerSideProps = async (context: any) => {
 
 export default function Movies({ movie, casts, recommendation }: any) {
   const { cast } = casts
-  console.log(recommendation)
-
-  const minToHour = (n: number) => {
-    let hours = n / 60
-    let rhours = Math.floor(hours)
-    let minutes = (hours - rhours) * 60
-    let rminutes = Math.round(minutes)
-    return rhours + 'h ' + rminutes + 'm'
-  }
+  //   console.log(recommendation)
   return (
     <>
       <Head>
@@ -61,8 +54,8 @@ export default function Movies({ movie, casts, recommendation }: any) {
           href="https://assets.nflxext.com/ffe/siteui/common/icons/nficon2016.ico"
         />
       </Head>
+      <Navbar />
       <div className="relative h-[200vh] select-none bg-[#0a0a0a] font-netflixSans">
-        <Navbar />
         <div
           className="absolute mb-5 h-[75vh] w-full bg-cover bg-center blur-md brightness-50 grayscale"
           style={{
@@ -91,52 +84,20 @@ export default function Movies({ movie, casts, recommendation }: any) {
           </div>
         </div>
         <div className="mx-28 flex pt-[80vh] text-white">
-          <div className="relative basis-3/4 border-2">
+          <div className="relative basis-3/4">
             <p className="mb-2 text-3xl font-semibold">Casts</p>
-            <div className="flex w-[64vw] gap-x-3 overflow-x-auto">
+            <div className="flex w-[65vw] gap-x-3 overflow-x-auto">
               {cast.map((person: any, i: number) => {
                 return <Casts person={person} key={i} />
               })}
             </div>
           </div>
-          <div className="basis-1/4 border-2 pl-5">
-            <>
-              <p className="text-2xl font-semibold">Duration</p>
-              <p className="text-[#eaeaea]">{minToHour(movie.runtime)}</p>
-            </>
-            <>
-              <p className="mt-5 text-2xl font-semibold">Genre</p>
-              <div className="flex gap-x-1">
-                {movie.genres.map((genre: any, i: number, row: any) => {
-                  if (i + 1 === row.length) {
-                    return (
-                      <Link href="/" key={i}>
-                        <a className="text-[#eaeaea]">{genre.name}</a>
-                      </Link>
-                    )
-                  } else {
-                    return (
-                      <Link href="/" key={i}>
-                        <a className="text-[#eaeaea]">{genre.name}, </a>
-                      </Link>
-                    )
-                  }
-                })}
-              </div>
-            </>
-            <>
-              <p className="mt-5 text-2xl font-semibold">Budget</p>
-              <p className="text-[#eaeaea]">
-                ${movie.budget.toLocaleString('en-US')}
-              </p>
-            </>
-            <>
-              <p className="mt-5 text-2xl font-semibold">Revenue</p>
-              <p className="text-[#eaeaea]">
-                ${movie.revenue.toLocaleString('en-US')}
-              </p>
-            </>
+          <div className="basis-1/4 pl-5">
+            <Details movie={movie} />
           </div>
+        </div>
+        <div className="mx-28 mt-28">
+          <p className="text-2xl font-semibold text-white">Similar Genre</p>
         </div>
       </div>
     </>

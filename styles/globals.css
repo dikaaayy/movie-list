@@ -18,3 +18,17 @@
 }
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 9px;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #9a9a9a;
+  border-radius: 6px;
+}
+
+body {
+  overflow: overlay;
+}
