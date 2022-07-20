@@ -23,7 +23,7 @@ export default function Rows() {
         fetchURL={request.getDocumentaryMovie}
         isLarge={true}
       />
-      <Row title="War" fetchURL={request.getWarMovie} isLarge={false} />
+      {/* <Row title="War" fetchURL={request.getWarMovie} isLarge={false} /> */}
       <Row title="History" fetchURL={request.getHistoryMovie} isLarge={false} />
     </div>
   )

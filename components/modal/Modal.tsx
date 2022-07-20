@@ -1,6 +1,7 @@
 import Backdrop from './Backdrop'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
+import Link from 'next/link'
 // import genres from '../genre'
 // import { useState } from 'react'
 
@@ -33,7 +34,17 @@ export default function Modal({
   function truncate(str: any, n: any) {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str
   }
+  const routeLogic = (type: any) => {
+    if (type) {
+      return type
+    } else;
+    {
+      return 'movie'
+    }
+  }
+
   // const [movieGenre, setMovieGenre] = useState([])
+  // console.log(movie)
   return (
     <>
       <Head>
@@ -81,7 +92,7 @@ export default function Modal({
             className="w-full"
           />
           <div className="flex">
-            <div className="basis-3/4 pt-8 pl-6 md:basis-2/3">
+            <div className="basis-3/4 pt-8 pl-6">
               <h2 className="mb-2 text-4xl font-semibold text-white">
                 {movie?.title || movie?.name || movie?.original_name}
               </h2>
@@ -92,19 +103,25 @@ export default function Modal({
                 "{truncate(movie?.overview, 500)}"
               </p>
             </div>
-            <div className="basis-1/4 pl-4 pt-8 md:basis-1/3">
-              <h1 className="text-white">
-                <span className=" text-gray-400">Rating: </span>
-                {movie.vote_average} / 10
-              </h1>
-              <h1 className="text-white">
-                <span className=" text-gray-400">Popularity: </span>
-                {movie.popularity}
-              </h1>
-              <h1 className="text-white">
-                <span className="text-gray-400">Genre: </span>
-                {movie.genre_ids}
-              </h1>
+            <div className="flex basis-1/4 items-center justify-center text-white">
+              <Link
+                href={
+                  `/${routeLogic(movie.media_type)}/` +
+                  movie.id +
+                  '?title=' +
+                  encodeURIComponent(
+                    movie?.title || movie?.name || movie?.original_name
+                  )
+                }
+              >
+                <a
+                  className="text-xl transition hover:text-gray-300"
+                  target={'_blank'}
+                  onClick={handleClose}
+                >
+                  Click for More
+                </a>
+              </Link>
             </div>
           </div>
         </motion.div>

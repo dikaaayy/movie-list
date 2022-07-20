@@ -4,34 +4,17 @@ import Modal from '../modal/Modal'
 import { AnimatePresence } from 'framer-motion'
 import classNames from 'classnames'
 import { translateMap } from '../constant'
+import Image from 'next/image'
 const imgURL = 'https://image.tmdb.org/t/p/original/'
 
-export default function Row({
-  title,
-  fetchURL,
-  isLarge,
-}: {
-  title: any
-  fetchURL: any
-  isLarge: any
-}) {
-  const [movies, setMovies] = useState<any[]>([])
+export default function RecommendationRow({ title, movies }: any) {
+  // const [movies, setMovies] = useState<any[]>([])
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalMovie, setModalMovie] = useState<any>({})
   const [sliderValue, setSliderValue] = useState(0)
 
-  // console.log(movies[0])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const request = await axios.get(fetchURL)
-      setMovies(request.data.results)
-    }
-    fetchData()
-  }, [fetchURL])
-
   const slideNext = () => {
-    if (sliderValue < 140) {
+    if (sliderValue < 160) {
       setSliderValue(sliderValue + 20)
     } else {
       setSliderValue(0)
@@ -55,16 +38,12 @@ export default function Row({
   }
   return (
     <>
-      <div className="relative mt-2 ml-6 overflow-hidden">
-        <h2 className="-mb-11 cursor-pointer text-3xl font-semibold text-[#eeeeee] transition hover:text-white md:ml-3 lg:ml-9">
+      <div className="relative overflow-hidden">
+        <h2 className="-mb-11 ml-9 cursor-pointer text-3xl font-semibold text-[#eeeeee] transition hover:text-white">
           {title}
         </h2>
         <div
-          className={`absolute left-0 z-20 flex ${
-            isLarge
-              ? 'top-[11%] h-[20.5rem] w-[4rem]'
-              : 'top-[18%] h-[10.5rem] w-[3rem]'
-          } cursor-pointer items-center justify-center rounded bg-black text-white opacity-20 transition hover:opacity-80 ${
+          className={`absolute left-0 top-[11%] z-20 flex h-[20.5rem] w-[4rem] cursor-pointer items-center justify-center rounded bg-black text-white opacity-20 transition hover:opacity-80 ${
             sliderValue < 1 ? 'hidden' : 'block'
           }`}
           onClick={slidePrev}
@@ -93,34 +72,27 @@ export default function Row({
             'slider flex transform items-center gap-x-4 py-14 transition-all duration-700 scrollbar-hide md:px-3 lg:px-9'
           )}
         >
-          {movies.map((movie) => {
+          {movies.map((movie: any) => {
             return (
               <div
-                className={`group w-52 flex-none overflow-hidden rounded bg-[#252525] shadow-lg transition duration-500 hover:scale-125 ${
-                  isLarge ? 'w-52' : 'h-[10rem] w-72'
-                }`}
+                className={`bg-[#252525]shadow-lg group w-52 flex-none overflow-hidden rounded transition duration-500 hover:z-10 hover:scale-125`}
                 key={movie.id}
               >
-                <img
-                  src={`${imgURL}${
-                    isLarge ? movie.poster_path : movie.backdrop_path
-                  }`}
+                <Image
+                  src={`${imgURL}${movie.poster_path}`}
                   alt=""
-                  className={`w-full cursor-pointer overflow-hidden ${
-                    isLarge ? 'h-[20rem] w-full' : 'h-[10rem] w-72'
-                  }`}
+                  className={`cursor-pointer overflow-hidden`}
                   onClick={() => (isModalOpen ? close() : open(movie))}
+                  height={320}
+                  width={208}
+                  layout="responsive"
                 />
               </div>
             )
           })}
         </div>
         <div
-          className={`absolute right-0 z-20 flex ${
-            isLarge
-              ? 'top-[11%] h-[20.5rem] w-[4rem]'
-              : 'top-[18%] h-[10.5rem] w-[3rem]'
-          } cursor-pointer items-center justify-center rounded bg-black text-white opacity-20 transition duration-500 hover:opacity-60`}
+          className={`absolute right-0 top-[11%] z-20 flex h-[20.5rem] w-[4rem] cursor-pointer items-center justify-center rounded bg-black text-white opacity-20 transition duration-500 hover:opacity-60`}
           onClick={slideNext}
         >
           <button className="align-middle">
