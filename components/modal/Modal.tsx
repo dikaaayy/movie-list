@@ -115,7 +115,7 @@ export default function Modal({
                 }
               >
                 <a
-                  className="text-lg transition hover:text-gray-300"
+                  className="text-xl transition hover:text-gray-300"
                   target={'_blank'}
                   onClick={handleClose}
                 >
