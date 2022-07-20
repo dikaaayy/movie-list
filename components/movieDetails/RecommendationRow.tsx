@@ -4,6 +4,7 @@ import Modal from '../modal/Modal'
 import { AnimatePresence } from 'framer-motion'
 import classNames from 'classnames'
 import { translateMap } from '../constant'
+import Image from 'next/image'
 const imgURL = 'https://image.tmdb.org/t/p/original/'
 
 export default function RecommendationRow({ title, movies }: any) {
@@ -74,14 +75,17 @@ export default function RecommendationRow({ title, movies }: any) {
           {movies.map((movie: any) => {
             return (
               <div
-                className={`group w-52 flex-none overflow-hidden rounded bg-gray-900 shadow-lg transition duration-500 hover:scale-125`}
+                className={`bg-[#252525]shadow-lg group w-52 flex-none overflow-hidden rounded transition duration-500 hover:z-10 hover:scale-125`}
                 key={movie.id}
               >
-                <img
+                <Image
                   src={`${imgURL}${movie.poster_path}`}
                   alt=""
-                  className={`h-[20rem] w-full cursor-pointer overflow-hidden`}
+                  className={`cursor-pointer overflow-hidden`}
                   onClick={() => (isModalOpen ? close() : open(movie))}
+                  height={320}
+                  width={208}
+                  layout="responsive"
                 />
               </div>
             )

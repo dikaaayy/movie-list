@@ -45,7 +45,7 @@ export const getServerSideProps = async (context: any) => {
 
 export default function Movies({ movie, casts, recommendation }: any) {
   const { cast } = casts
-  console.log(movie)
+  // console.log(movie)
   return (
     <>
       <Head>
@@ -56,7 +56,7 @@ export default function Movies({ movie, casts, recommendation }: any) {
         />
       </Head>
       <Navbar />
-      <div className="relative h-[200vh] select-none bg-[#0a0a0a] font-netflixSans">
+      <div className="relative h-fit select-none bg-[#0a0a0a] font-netflixSans">
         <div
           className="absolute mb-5 h-[75vh] w-full bg-cover bg-center blur-md brightness-50 grayscale"
           style={{
@@ -73,7 +73,10 @@ export default function Movies({ movie, casts, recommendation }: any) {
           />
           <div className="flex basis-full flex-col gap-y-8">
             <p className="text-2xl font-semibold text-white lg:text-5xl">
-              {movie?.name || movie?.original_title}
+              {movie?.name || movie?.original_title + ' '}
+              <span className="font-normal text-[#dfdede]">
+                ({new Date(movie?.release_date).getFullYear()})
+              </span>
             </p>
             <p className="text-base italic text-[#d4d4d4] lg:text-lg">
               {movie?.tagline}
@@ -84,7 +87,7 @@ export default function Movies({ movie, casts, recommendation }: any) {
             </div>
           </div>
         </div>
-        <div className="mx-28 flex pt-[80vh] text-white">
+        <div className="mx-24 flex pt-[80vh] text-white">
           <div className="relative basis-3/4">
             <p className="mb-2 text-3xl font-semibold">Casts</p>
             <div className="flex w-[65vw] gap-x-3 overflow-x-auto">
@@ -97,7 +100,7 @@ export default function Movies({ movie, casts, recommendation }: any) {
             <Details movie={movie} />
           </div>
         </div>
-        <div className="mx-[4.5rem] mt-28">
+        <div className="mx-14 mt-28 pb-10">
           <RecommendationRow
             title={'Similar Genre'}
             movies={recommendation.results}

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function Details({ movie }: any) {
+export default function Details({ tvShow }: any) {
   const minToHour = (n: number) => {
     let hours = n / 60
     let rhours = Math.floor(hours)
@@ -12,13 +12,23 @@ export default function Details({ movie }: any) {
   return (
     <>
       <>
-        <p className="text-2xl font-semibold">Duration</p>
-        <p className="text-[#eaeaea]">{minToHour(movie.runtime)}</p>
+        <p className="mt-5 text-2xl font-semibold">Season Released</p>
+        <p className="text-[#eaeaea]">
+          {tvShow?.number_of_seasons} season
+          {tvShow?.number_of_seasons > 1 ? 's' : ''}
+        </p>
+      </>
+      <>
+        <p className="mt-5 text-2xl font-semibold">Episode Released</p>
+        <p className="text-[#eaeaea]">
+          {tvShow?.number_of_episodes} episode
+          {tvShow?.number_of_episodes > 1 ? 's' : ''}
+        </p>
       </>
       <>
         <p className="mt-5 text-2xl font-semibold">Genre</p>
         <div className="flex gap-x-1">
-          {movie.genres.map((genre: any, i: number, row: any) => {
+          {tvShow.genres.map((genre: any, i: number, row: any) => {
             if (i + 1 === row.length) {
               return (
                 <p key={i} className="text-[#eaeaea]">
@@ -37,18 +47,6 @@ export default function Details({ movie }: any) {
             }
           })}
         </div>
-      </>
-      <>
-        <p className="mt-5 text-2xl font-semibold">Budget</p>
-        <p className="text-[#eaeaea]">
-          ${movie.budget.toLocaleString('en-US')}
-        </p>
-      </>
-      <>
-        <p className="mt-5 text-2xl font-semibold">Revenue</p>
-        <p className="text-[#eaeaea]">
-          ${movie.revenue.toLocaleString('en-US')}
-        </p>
       </>
     </>
   )

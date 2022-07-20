@@ -44,7 +44,7 @@ export default function Modal({
   }
 
   // const [movieGenre, setMovieGenre] = useState([])
-  console.log(movie)
+  // console.log(movie)
   return (
     <>
       <Head>
@@ -92,7 +92,7 @@ export default function Modal({
             className="w-full"
           />
           <div className="flex">
-            <div className="basis-3/4 pt-8 pl-6 md:basis-2/3">
+            <div className="basis-3/4 pt-8 pl-6">
               <h2 className="mb-2 text-4xl font-semibold text-white">
                 {movie?.title || movie?.name || movie?.original_name}
               </h2>
@@ -103,15 +103,7 @@ export default function Modal({
                 "{truncate(movie?.overview, 500)}"
               </p>
             </div>
-            <div className="basis-1/4 space-y-1 pl-4 pt-8 text-white md:basis-1/3">
-              <h1 className="">
-                <span className=" text-gray-400">Rating: </span>
-                {movie.vote_average} / 10
-              </h1>
-              {/* <h1 className="text-white">
-                <span className=" text-gray-400">Popularity: </span>
-                {movie.popularity}
-              </h1> */}
+            <div className="flex basis-1/4 items-center justify-center text-white">
               <Link
                 href={
                   `/${routeLogic(movie.media_type)}/` +
@@ -123,7 +115,7 @@ export default function Modal({
                 }
               >
                 <a
-                  className="self-start rounded text-lg transition hover:text-gray-300"
+                  className="text-lg transition hover:text-gray-300"
                   target={'_blank'}
                   onClick={handleClose}
                 >
