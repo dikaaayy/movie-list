@@ -8,5 +8,5 @@ export const getServerSideProps = async () => {
 }
 
 export default function Index() {
-  return <div>index</div>
+  return <></>
 }
