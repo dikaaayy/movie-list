@@ -58,6 +58,8 @@ export default function Row({
     }
   }, [])
 
+  // console.log(movies[0])
+
   useEffect(() => {
     const fetchData = async () => {
       const request = await axios.get(fetchURL)

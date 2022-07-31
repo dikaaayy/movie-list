@@ -45,7 +45,6 @@ export const getServerSideProps = async (context: any) => {
 
 export default function Movies({ movie, casts, recommendation }: any) {
   const { cast } = casts
-  // console.log(recommendation.results.length)
   return (
     <>
       <Head>
