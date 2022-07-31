@@ -56,7 +56,7 @@ export default function Movies({ tvShow, casts, recommendation }: any) {
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${tvShow?.backdrop_path})`,
           }}
         />
-        <div className="absolute z-20 mx-10 mt-32 flex flex-col md:mx-48 md:flex-row md:space-x-10">
+        <div className="absolute z-20 mx-10 mt-24 flex flex-col md:mx-48 md:mt-32 md:flex-row md:space-x-10">
           {/*ratio gambar 5:8*/}
           <Image
             src={`https://image.tmdb.org/t/p/original/${tvShow?.poster_path}`}
@@ -64,8 +64,8 @@ export default function Movies({ tvShow, casts, recommendation }: any) {
             height={8 * 65}
             className="self-start rounded"
           />
-          <div className="flex basis-full flex-col gap-y-8">
-            <p className="text-2xl font-semibold text-white lg:text-5xl">
+          <div className="mt-8 flex basis-full flex-col gap-y-8 md:mt-0">
+            <p className="text-center text-3xl font-semibold text-white md:text-left lg:text-5xl">
               {tvShow?.name || tvShow?.original_title}{' '}
               <span className="font-normal text-[#dfdede]">
                 ({new Date(tvShow?.first_air_date).getFullYear()})
@@ -80,25 +80,27 @@ export default function Movies({ tvShow, casts, recommendation }: any) {
             </div>
           </div>
         </div>
-        <div className="mx-24 flex pt-[80vh] text-white">
+        <div className="mx-10 flex flex-col pt-[120vh] text-white md:mx-24 md:flex-row md:pt-[80vh]">
           <div className="relative basis-3/4">
             <p className="mb-2 text-3xl font-semibold">Casts</p>
-            <div className="flex w-[65vw] gap-x-3 overflow-x-auto">
+            <div className="flex gap-x-3 overflow-x-auto md:w-[65vw]">
               {cast.map((person: any, i: number) => {
                 return <Casts person={person} key={i} />
               })}
             </div>
           </div>
-          <div className="basis-1/4 pl-5">
+          <div className="mt-5 pb-3 md:mt-0 md:basis-1/4 md:pl-5">
             <TVDetails tvShow={tvShow} />
           </div>
         </div>
-        <div className="mx-14 mt-28 pb-10">
-          <RecommendationRow
-            title={'Similar Genre'}
-            movies={recommendation.results}
-          />
-        </div>
+        {recommendation.results.length !== 0 && (
+          <div className="mx-5 mt-14 pb-10 md:mx-14 md:mt-28">
+            <RecommendationRow
+              title={'Similar Genre'}
+              movies={recommendation.results}
+            />
+          </div>
+        )}
       </div>
     </>
   )

@@ -19,8 +19,44 @@ export default function Row({
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalMovie, setModalMovie] = useState<any>({})
   const [sliderValue, setSliderValue] = useState(0)
+  const [width, setWidth] = useState('')
 
-  // console.log(movies[0])
+  useEffect(() => {
+    const updateMedia = () => {
+      if (window.innerWidth > 0 && window.innerWidth <= 639) {
+        setWidth('xsmall')
+      } else if (window.innerWidth > 639 && window.innerWidth <= 767) {
+        setWidth('small')
+      } else if (window.innerWidth > 767 && window.innerWidth <= 1023) {
+        setWidth('medium')
+      } else if (window.innerWidth > 1023 && window.innerWidth <= 1279) {
+        setWidth('large')
+      } else if (window.innerWidth > 1279 && window.innerWidth <= 1535) {
+        setWidth('xlarge')
+      } else {
+        setWidth('2xlarge')
+      }
+      setSliderValue(0)
+    }
+    window.addEventListener('resize', updateMedia)
+    return () => window.removeEventListener('resize', updateMedia)
+  }, [width])
+
+  useEffect(() => {
+    if (window.innerWidth > 0 && window.innerWidth <= 639) {
+      setWidth('xsmall')
+    } else if (window.innerWidth > 639 && window.innerWidth <= 767) {
+      setWidth('small')
+    } else if (window.innerWidth > 767 && window.innerWidth <= 1023) {
+      setWidth('medium')
+    } else if (window.innerWidth > 1023 && window.innerWidth <= 1279) {
+      setWidth('large')
+    } else if (window.innerWidth > 1279 && window.innerWidth <= 1535) {
+      setWidth('xlarge')
+    } else {
+      setWidth('2xlarge')
+    }
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,17 +67,53 @@ export default function Row({
   }, [fetchURL])
 
   const slideNext = () => {
-    if (sliderValue < 140) {
-      setSliderValue(sliderValue + 20)
-    } else {
-      setSliderValue(0)
+    switch (width) {
+      case '2xlarge':
+        if (sliderValue < 140) {
+          setSliderValue(sliderValue + 20)
+        } else {
+          setSliderValue(0)
+        }
+        break
+      case 'medium':
+        if (sliderValue < 540) {
+          setSliderValue(sliderValue + 45)
+        } else {
+          setSliderValue(0)
+        }
+        break
+      case 'xsmall':
+        if (sliderValue < 1040) {
+          setSliderValue(sliderValue + 120)
+        } else {
+          setSliderValue(0)
+        }
+        break
     }
   }
   const slidePrev = () => {
-    if (sliderValue > 0) {
-      setSliderValue(sliderValue - 20)
-    } else {
-      setSliderValue(0)
+    switch (width) {
+      case '2xlarge':
+        if (sliderValue > 0) {
+          setSliderValue(sliderValue - 20)
+        } else {
+          setSliderValue(0)
+        }
+        break
+      case 'xsmall':
+        if (sliderValue > 0) {
+          setSliderValue(sliderValue - 120)
+        } else {
+          setSliderValue(0)
+        }
+        break
+      case 'medium':
+        if (sliderValue > 0) {
+          setSliderValue(sliderValue - 45)
+        } else {
+          setSliderValue(0)
+        }
+        break
     }
   }
 
@@ -110,6 +182,7 @@ export default function Row({
                     isLarge ? 'h-[20rem] w-full' : 'h-[10rem] w-72'
                   }`}
                   onClick={() => (isModalOpen ? close() : open(movie))}
+                  loading="lazy"
                 />
               </div>
             )

@@ -59,7 +59,7 @@ export default function Modal({
       <Backdrop onClick={handleClose}>
         <motion.div
           onClick={(e) => e.stopPropagation()}
-          className="relative m-auto h-[83vh] w-[90%] overflow-scroll overflow-x-hidden rounded-lg bg-[#080c0d] scrollbar-hide lg:w-[60rem]"
+          className="relative m-auto h-fit w-[90%] overflow-scroll overflow-x-hidden rounded-lg bg-[#080c0d] pb-5 scrollbar-hide lg:w-[60rem]"
           variants={dropIn}
           initial="hidden"
           animate="visible"
@@ -91,8 +91,8 @@ export default function Modal({
             alt={movie?.title || movie?.original_title}
             className="w-full"
           />
-          <div className="flex">
-            <div className="basis-3/4 pt-8 pl-6">
+          <div className="flex flex-col space-y-8 md:flex-row md:space-y-0">
+            <div className="basis-3/4 px-3 pt-8">
               <h2 className="mb-2 text-4xl font-semibold text-white">
                 {movie?.title || movie?.name || movie?.original_name}
               </h2>
@@ -114,11 +114,7 @@ export default function Modal({
                   )
                 }
               >
-                <a
-                  className="text-xl transition hover:text-gray-300"
-                  target={'_blank'}
-                  onClick={handleClose}
-                >
+                <a className="text-xl transition hover:text-gray-300">
                   Click for More
                 </a>
               </Link>

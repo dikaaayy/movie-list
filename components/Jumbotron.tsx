@@ -9,7 +9,7 @@ const imgURL = 'https://image.tmdb.org/t/p/original/'
 export default function Jumbotron() {
   const [movie, setMovie] = useState<any>({})
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [modalMovie, setModalMovie] = useState<any>({})
+  const [modalMovie, setModalMovie] = useState<any>(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,14 +25,14 @@ export default function Jumbotron() {
   }, [])
   const close = () => {
     setIsModalOpen(false)
-    setModalMovie({})
+    setModalMovie(null)
   }
   const open = (movie: any) => {
     setIsModalOpen(true)
     setModalMovie(movie)
   }
 
-  function truncate(str: any, n: any) {
+  function truncate(str: String, n: number) {
     return str?.length > n ? str.substr(0, n - 1) + '...' : str
   }
 
