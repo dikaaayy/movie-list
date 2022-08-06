@@ -1,4 +1,4 @@
-# Movie Lists
+<h1 align="center">Movie Lists</h1>
 
 <img src="images/movieMacbook.png" width="1000"/>
 <p align="center">
