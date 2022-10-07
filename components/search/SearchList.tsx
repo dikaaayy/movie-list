@@ -24,7 +24,7 @@ export default function SearchList({ result }: any) {
         result?.title || result?.name || result?.original_name
       )}`}
     >
-      <a className="flex w-[80%] items-center overflow-hidden rounded bg-[#171717] text-white transition hover:bg-[#252525] md:flex-row">
+      <a className="flex w-[80%] flex-row overflow-hidden rounded bg-[#171717] text-white transition hover:bg-[#252525]">
         <Image
           src={`https://image.tmdb.org/t/p/original/${poster_path}`}
           width={6 * 30}
@@ -36,8 +36,12 @@ export default function SearchList({ result }: any) {
           <p className="text-lg font-medium md:text-2xl">
             {original_title || title || name || original_name}
           </p>
-          <p className="text-sm text-slate-300">{release_date}</p>
-          <p className="mt-5 text-sm">{truncate(overview, 40)}</p>
+          <p
+            className={`text-sm text-slate-300 ${!release_date && 'invisible'}`}
+          >
+            {release_date || 'template'}
+          </p>
+          <p className="mt-5 text-sm">{overview}</p>
         </div>
       </a>
     </Link>
