@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 const Home: NextPage = () => {
   return (
     <div className="select-none bg-[#0a0a0a] font-netflixSans">
-      <Head />
+      <Head title={'Home'} />
       <Navbar />
       <Jumbotron />
       <Rows />
