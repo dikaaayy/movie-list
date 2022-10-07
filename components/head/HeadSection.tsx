@@ -1,10 +1,12 @@
 import Head from 'next/head'
 
-export default function HeadSection({ title }: any) {
+export default function HeadSection({ title, additional }: any) {
   return (
     <>
       <Head>
-        <title>{title} | Movie List</title>
+        <title>
+          {title} | {additional || 'Movie List'}
+        </title>
         <link
           rel="icon"
           href="https://assets.nflxext.com/ffe/siteui/common/icons/nficon2016.ico"

@@ -13,26 +13,31 @@ export default function SearchList({ result }: any) {
     name,
     original_name,
   } = result
+
+  function truncate(str: String, n: number) {
+    return str?.length > n ? str.substr(0, n - 1) + '...' : str
+  }
+
   return (
     <Link
       href={`/movie/${id}?title=${encodeURIComponent(
         result?.title || result?.name || result?.original_name
       )}`}
     >
-      <a className="flex w-[80%] rounded bg-[#171717] text-white transition hover:bg-[#252525]">
+      <a className="flex w-[80%] items-center overflow-hidden rounded bg-[#171717] text-white transition hover:bg-[#252525] md:flex-row">
         <Image
           src={`https://image.tmdb.org/t/p/original/${poster_path}`}
           width={6 * 30}
           height={8 * 30}
-          className="self-start rounded"
+          className="rounded-sm"
           layout="fixed"
         />
-        <div className="ml-5 w-full py-2 pr-5">
-          <p className="text-2xl font-medium">
+        <div className="py-2 md:ml-5 md:w-full md:pr-5">
+          <p className="text-lg font-medium md:text-2xl">
             {original_title || title || name || original_name}
           </p>
-          <p className="text-slate-300">{release_date}</p>
-          <p className="mt-5">{overview}</p>
+          <p className="text-sm text-slate-300">{release_date}</p>
+          <p className="mt-5 text-sm">{truncate(overview, 40)}</p>
         </div>
       </a>
     </Link>

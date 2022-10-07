@@ -29,8 +29,8 @@ export default function Search({ data }: any) {
       <HeadSection title={'Search'} />
       <div className="bg-[#0a0a0a]">
         <Navbar />
-        <div className="ml-20 flex flex-col space-y-5 pt-28">
-          <p className="mb-5 text-4xl font-semibold text-white">
+        <div className="flex flex-col items-center space-y-5 pt-28 md:ml-20 md:items-start">
+          <p className="mb-5 ml-5 self-start text-4xl font-semibold text-white">
             Search results
           </p>
           {sortedData.map((result: any, i: any) => {

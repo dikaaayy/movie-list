@@ -5,6 +5,7 @@ import Casts from '../../components/movieDetails/Casts'
 import TVDetails from '../../components/movieDetails/TVDetails'
 import RecommendationRow from '../../components/movieDetails/RecommendationRow'
 import Navbar from '../../components/Navbar'
+import HeadSection from '../../components/head/HeadSection'
 
 export const getServerSideProps = async (context: any) => {
   const { id } = context.params
@@ -41,13 +42,11 @@ export default function Movies({ tvShow, casts, recommendation }: any) {
   // console.log(cast)
   return (
     <>
-      <Head>
-        <title>{tvShow.name || tvShow.original_title} | Details </title>
-        <link
-          rel="icon"
-          href="https://assets.nflxext.com/ffe/siteui/common/icons/nficon2016.ico"
-        />
-      </Head>
+      {/* <title>{tvShow.name || tvShow.original_title} | Details </title> */}
+      <HeadSection
+        title={tvShow.name || tvShow.original_title}
+        additional={'Details'}
+      />
       <Navbar />
       <div className="relative h-fit select-none bg-[#0a0a0a] font-netflixSans">
         <div

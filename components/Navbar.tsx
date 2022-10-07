@@ -54,18 +54,18 @@ export default function Navbar() {
           {isSearchOpen ? (
             <>
               <form
-                className="flex items-center gap-x-2"
+                className="flex items-center justify-end gap-x-2"
                 onSubmit={submitHandler}
               >
                 <input
                   type="text"
-                  className="bg-black py-1 px-3 text-sm text-white outline-[1px] placeholder:text-gray-400"
+                  className="w-1/2 rounded-sm bg-black py-1 pl-1 text-xs text-white outline-[1px] placeholder:text-gray-400 md:w-full md:px-3 md:text-sm"
                   placeholder="Enter a title"
                   ref={inputRef}
                 />
                 <button
                   type="submit"
-                  className="rounded p-1 hover:bg-[#171717]"
+                  className="rounded hover:bg-[#171717] md:p-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ export default function Navbar() {
                 </button>
                 <button
                   onClick={() => setIsSearchOpen(false)}
-                  className="rounded p-1 hover:bg-[#171717]"
+                  className="rounded hover:bg-[#171717] md:p-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ export default function Navbar() {
           ) : (
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="rounded p-1 text-white hover:bg-[#171717]"
+              className="rounded text-white hover:bg-[#171717] md:p-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
